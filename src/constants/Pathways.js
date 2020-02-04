@@ -1,0 +1,8 @@
+export const HOME = '/'
+export const SIGNUP = '/signup'
+export const LOGIN = '/login'
+export const RESETPASSWORD = '/reset-password'
+export const CREATE = '/create'
+export const SEARCH = '/search'
+export const SAVED = '/saved'
+export const PROFILE = '/profile'

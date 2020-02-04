@@ -1,0 +1,102 @@
+.component-wrap {
+  height: 100%;
+}
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.signup_container, .login_container, .recover-form {
+    display: inline-block;
+    width: 100%;
+    width: 350px;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.inputs {
+  width: 100%;
+}
+.input-field input {
+    font-size: 1em;
+    border: none;
+    padding: 1em;
+    width: 300px;
+    background-color: #FFF;
+    color: #000;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    margin: 10px;
+}
+.input-field .half-width {
+    width: 122px;
+}
+
+.input-field input:focus {
+    outline: none;
+    border: 1px solid #0075FD;
+}
+.input-field input:-internal-autofill-selected {
+    background-color: #454545 !important;
+    color: #FFF !important;
+}
+
+.input-field input::placeholder {
+    color: #979797;
+}
+form {
+  padding: 20px;
+}
+form h5 {
+  font-size: 1.5em;
+    color: #000;
+    float: left;
+  margin: 10px;
+}
+form p  {
+    color: #FFF;
+    float: left;
+    margin: 10px;
+}
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}
+form a {
+    color: #979797;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 10px;
+    margin-top: 0;
+    font-size: 1em;
+}
+form a:hover {
+  color: #000;
+}
+
+form button {
+  width: 336px;
+  cursor: pointer;
+  background-color: #0075FD;
+  color: #FFF;
+  font-size: 1em;
+  padding: 1em;
+  border: 2px solid #0075FD;
+  border-radius: 5px;
+  margin: 10px;
+  font-weight: 600;
+}
+.recover-cancel {
+  float: right;
+  margin-top: 20px;
+}
+
+.red-text {
+  color: #CE3238;
+}
+ 

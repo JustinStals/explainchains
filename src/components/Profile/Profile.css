@@ -1,0 +1,57 @@
+.profile {
+    position: absolute;
+    top: 70px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.profile .user {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile .user .image {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    border: 2px solid #e5e5e5;
+    overflow: hidden;
+    margin: 0;
+    
+}
+.profile .user .image button {
+    height: 100%;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+}
+
+.profile .user .name h1 {
+    font-weight: 300;
+    font-size: 24px;
+}
+
+.profile .stats ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.profile .stats ul li {
+    
+    width: 100px;
+}
+.profile .stats ul li p {
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+}
+.profile .stats ul li p span {
+    
+}

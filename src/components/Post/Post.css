@@ -1,0 +1,131 @@
+
+.home .feed article {
+    width: 100%;
+    border: 1px solid #e5e5e5;
+    margin: 50px 0;
+    border-radius: 3px;
+}
+.home .feed article .top {
+    height: 45px;
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    justify-content: space-between;
+}
+
+.home .feed article .creator {
+    height: 45px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.home .feed article .creator .image {
+    margin: 0 10px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 1px solid #e5e5e5;
+}
+.home .feed article .creator .username {
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.home .feed article .options {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.home .feed article .options button {
+    height: 45px;
+    width: 45px;
+    border: none;
+    background: none;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+.home .feed article .options button:active, .home .feed article .options button:focus {
+    outline: none;
+}
+.home .feed article .options button div {
+    height: 3px;
+    width: 3px;
+    border-radius: 50%;
+    margin: 2px;
+}
+
+.home .feed article .chain {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: 100%;
+    height: 400px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.home .feed article .interactions {
+    height: 40px;
+}
+.home .feed article .interactions ul {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 5px;
+}
+
+.home .feed article .interactions ul li {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home .feed article .interactions ul li button {
+    height: 40px;
+    width: 35px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.home .feed article .comments ul {
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.home .feed article .comments .add{
+    width: 100%;
+    display: flex;
+}
+
+.home .feed article .comments .add input {
+    flex-grow: 1;
+    outline: none;
+    border: none;
+    height: 40px;
+    padding: 0 10px;
+    font-size: 12px;
+}
+
+.home .feed article .comments .add button {
+    outline: none;
+    border: none;
+    font-weight: 600;
+    width: 50px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+    .home .feed article {
+        border: none;
+    }
+
+    .home .feed article .top, .home .feed article .chain {
+        border-bottom: none;
+    }
+}
