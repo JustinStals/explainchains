@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Slider from "react-slick";
 import './Post.css';
 
 class Post extends Component {
@@ -11,6 +12,13 @@ class Post extends Component {
     }
 
     render() {
+        const settings = {
+            dots: true,
+            infinite: false,
+            speed: 500,
+            slidesToShow: 1,
+            slidesToScroll: 1
+          };
         const { auth, profile} = this.props;
 
         return (
@@ -32,12 +40,31 @@ class Post extends Component {
                         </button>
                     </div>
                 </div>
-                <ul className="chain">
+                <div className="chain">
+                    <Slider {...settings}>
+                        <div>
+                            <div className="item" id="a"></div>
+                        </div>
+                        <div>
+                            <div className="item" id="b"></div>
+                        </div>
+                        <div>
+                            <div className="item" id="c"></div>
+                        </div>
+                        <div>
+                            <div className="item" id="d"></div>
+                        </div>
+                        <div>
+                            <div className="item" id="e"></div>
+                        </div>
+                    </Slider>
+                </div>
+                {/* <ul className="chain">
                     <li></li>
                     <li></li>
                     <li></li>
                     <li></li>
-                </ul>
+                </ul> */}
                 <div className="interactions">
                     <ul>
                         <li>
