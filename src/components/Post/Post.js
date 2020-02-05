@@ -17,7 +17,8 @@ class Post extends Component {
             infinite: false,
             speed: 500,
             slidesToShow: 1,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            arrows: false
           };
         const { auth, profile} = this.props;
 

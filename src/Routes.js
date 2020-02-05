@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import SignUp from './components/UserAuth/SignUp';
 import LogIn from './components/UserAuth/LogIn';
 import Home from './components/Home/Home';
@@ -7,6 +7,8 @@ import Search from './components/Search/Search';
 import Create from './components/Create/Create';
 import Saved from './components/Saved/Saved';
 import Profile from './components/Profile/Profile';
+import EditProfile from './components/Profile/EditProfile/EditProfile';
+import MissingPage from './components/MissingPage/MissingPage';
 import ResetPassword from './components/UserAuth/ResetPassword';
 import * as PATHWAYS from './constants/Pathways'
 import './index.css';
@@ -45,63 +47,79 @@ class Routes extends Component {
         return (
             <div className="app" style={{backgroundColor: BGColor}}>
                 <Router>
-                    <Route
-                        exact path={PATHWAYS.SIGNUP}
-                        render={(props) => <SignUp {...props}
-                        />}
-                    />
-                    <Route
-                        exact path={PATHWAYS.LOGIN}
-                        render={(props) => <LogIn {...props}
-                        />}
-                    />
-                    <Route
-                        path={PATHWAYS.RESETPASSWORD}
-                        ref={this.myRef}
-                        render={(props) => <ResetPassword {...props}
-                        />}
-                    />
-                    <Route
-                        exact path={PATHWAYS.HOME}
-                        render={(props) => <Home {...props}
-                        menuOpen={menuOpen}
-                        colorScheme={colorScheme}
-                        toggleColorScheme={this.toggleColorScheme} 
-                        />}
-                    />
-                    <Route
-                        exact path={PATHWAYS.SEARCH}
-                        render={(props) => <Search {...props}
-                        menuOpen={menuOpen}
-                        colorScheme={colorScheme}
-                        toggleColorScheme={this.toggleColorScheme}
-                        />}
-                    />
-                    <Route
-                        exact path={PATHWAYS.CREATE}
-                        render={(props) => <Create {...props}
-                        menuOpen={menuOpen}
-                        colorScheme={colorScheme}
-                        toggleColorScheme={this.toggleColorScheme}
-                        />}
-                    />
-                    <Route
-                        exact path={PATHWAYS.SAVED}
-                        render={(props) => <Saved {...props}
-                        menuOpen={menuOpen}
-                        colorScheme={colorScheme}
-                        toggleColorScheme={this.toggleColorScheme}
-                        />}
-                    />
-                    <Route
-                        path={PATHWAYS.PROFILE}
-                        ref={this.myRef}
-                        render={(props) => <Profile {...props}
-                        menuOpen={menuOpen}
-                        colorScheme={colorScheme}
-                        toggleColorScheme={this.toggleColorScheme}
-                        />}
-                    />
+                    <Switch>
+                        <Route
+                            exact path={PATHWAYS.SIGNUP}
+                            render={(props) => <SignUp {...props}
+                            />}
+                        />
+                        <Route
+                            exact path={PATHWAYS.LOGIN}
+                            render={(props) => <LogIn {...props}
+                            />}
+                        />
+                        <Route
+                            path={PATHWAYS.RESETPASSWORD}
+                            ref={this.myRef}
+                            render={(props) => <ResetPassword {...props}
+                            />}
+                        />
+                        <Route
+                            exact path={PATHWAYS.HOME}
+                            render={(props) => <Home {...props}
+                            menuOpen={menuOpen}
+                            colorScheme={colorScheme}
+                            toggleColorScheme={this.toggleColorScheme} 
+                            />}
+                        />
+                        <Route
+                            exact path={PATHWAYS.SEARCH}
+                            render={(props) => <Search {...props}
+                            menuOpen={menuOpen}
+                            colorScheme={colorScheme}
+                            toggleColorScheme={this.toggleColorScheme}
+                            />}
+                        />
+                        <Route
+                            exact path={PATHWAYS.CREATE}
+                            render={(props) => <Create {...props}
+                            menuOpen={menuOpen}
+                            colorScheme={colorScheme}
+                            toggleColorScheme={this.toggleColorScheme}
+                            />}
+                        />
+                        <Route
+                            exact path={PATHWAYS.SAVED}
+                            render={(props) => <Saved {...props}
+                            menuOpen={menuOpen}
+                            colorScheme={colorScheme}
+                            toggleColorScheme={this.toggleColorScheme}
+                            />}
+                        />
+                        <Route
+                            exact path={PATHWAYS.EDITPROFILE}
+                            render={(props) => <EditProfile {...props}
+                            menuOpen={menuOpen}
+                            colorScheme={colorScheme}
+                            toggleColorScheme={this.toggleColorScheme}
+                            />}
+                        />
+                        <Route
+                            path={PATHWAYS.PROFILE}
+                            ref={this.myRef}
+                            render={(props) => <Profile {...props}
+                            menuOpen={menuOpen}
+                            colorScheme={colorScheme}
+                            toggleColorScheme={this.toggleColorScheme}
+                            />}
+                        />
+                        
+                        <Route
+                            exact path={PATHWAYS.MISSINGPAGE}
+                            component={MissingPage}
+                         />
+                        <Route component={MissingPage} />
+                    </Switch>
                 </Router>
             </div>
         )

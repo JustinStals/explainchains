@@ -29,7 +29,7 @@ class LogIn extends Component {
                 <div className="flex-center">
                     <form onSubmit={this.handleSubmit}>
                         <h5>Log In</h5>
-                        <div className="red-text">
+                        <div className="auth-error">
                             { authError ? <p>{authError}</p> : null}
                         </div>
                         <div className="inputs">
@@ -59,7 +59,7 @@ class LogIn extends Component {
 const mapStateToProps = (state) => {
     return {
         auth: state.firebase.auth,
-        authError: state.firebase.auth.authError
+        authError: state.auth.authError
     }
 }
 

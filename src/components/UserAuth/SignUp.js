@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { signUp } from '../../store/actions/authActions';
 import { NavLink } from 'react-router-dom';
@@ -12,15 +14,30 @@ class SignUp extends Component {
             email: '',
             password: '',
             passwordRepeat: '',
-            firstName: '',
-            lastName: '',
-            userName: '',
-
+            name: '',
+            username: '',
+            usernameTaken: false
         }
     }
     handleChange = (e) => {
         this.setState({
             [e.target.id]: e.target.value
+        })
+    }
+    handleUsernameChange = (e) => {
+        let usernames = this.props.usernames;
+        this.setState({
+            [e.target.id]: e.target.value
+        }, () => {
+            if (this.state.username in usernames) {
+                this.setState({
+                    usernameTaken: true
+                })
+            } else {
+                this.setState({
+                    usernameTaken: false
+                })
+            }
         })
     }
     handleSubmit = (e) => {
@@ -33,6 +50,11 @@ class SignUp extends Component {
         return <Redirect to='/' />
     } 
     
+    let usernameClasses = "username"
+
+    if (this.state.usernameTaken) {
+        usernameClasses = "username taken"
+    }
     return (
         <div className="component-wrap">
             <div className="flex-center">
@@ -46,8 +68,14 @@ class SignUp extends Component {
                             <input type="email" placeholder="Email" id="email" onChange={this.handleChange}></input>
                         </div>
                         <div className="input-field">
-                            <input className="half-width" type="text" placeholder="First name" id="firstName" onChange={this.handleChange}></input>
-                            <input className="half-width" type="text" placeholder="Last name" id="lastName" onChange={this.handleChange}></input>
+                            <input type="text" placeholder="Full name" id="name" onChange={this.handleChange}></input>
+                        </div>
+                        <div className="input-field">
+                            <input type="text" placeholder="Username" id="username" onChange={this.handleUsernameChange}></input>
+                            <div className={usernameClasses}>
+                                <div />
+                                <div />
+                            </div>
                         </div>
                         <div className="input-field">
                             <input type="password" placeholder="Password" id="password" onChange={this.handleChange}></input>
@@ -69,8 +97,9 @@ class SignUp extends Component {
 
 const mapStateToProps = (state) => {
     return {
+        usernames: state.firestore.data.usernames,
         auth: state.firebase.auth,
-        authError: state.firebase.auth.authError
+        authError: state.auth.authError
     }
 }
 
@@ -80,4 +109,9 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp)
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    firestoreConnect([
+        { collection: 'usernames' }
+    ])
+)(SignUp);

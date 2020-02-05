@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import SignOut from '../UserAuth/SignOut';
+import { connect } from 'react-redux';
 import './TopMenu.css';
 
 class TopMenu extends Component {
@@ -17,6 +18,7 @@ class TopMenu extends Component {
     };
 
     render() {
+        const { profile } = this.props;
         let settingsClasses = "settings"
         let settingsGearClasses = "settings-gear"
         if (this.state.settingsOpen) {
@@ -425,7 +427,7 @@ class TopMenu extends Component {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/profile">
+                        <NavLink to={"/" + profile.username}>
                             <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                                 <g stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
                                 <path d="M15.3,15.3 C19.4708119,15.3 22.8671096,18.6160898 22.996194,22.7555702 L23,23 L1,23 C1,18.7474074 4.44740743,15.3 8.7,15.3 L15.3,15.3 Z M12,1 C15.3413227,1 18.05,3.70867726 18.05,7.05 C18.05,10.3913227 15.3413227,13.1 12,13.1 C8.65867726,13.1 5.95,10.3913227 5.95,7.05 C5.95,3.70867726 8.65867726,1 12,1 Z" stroke={this.props.FGColor} strokeWidth={2} fill={this.props.activeSection === "profile" ? this.props.FGColor : "none"} />
@@ -448,4 +450,10 @@ class TopMenu extends Component {
     }
 }
 
-export default TopMenu;
+const mapStateToProps = (state) => {
+    return { 
+        profile: state.firebase.profile
+    }
+}
+
+export default connect(mapStateToProps)(TopMenu);

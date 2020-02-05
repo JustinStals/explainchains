@@ -48,7 +48,7 @@ class ResetPassword extends Component {
 const mapStateToProps = (state) => {
     return {
         auth: state.firebase.auth,
-        authError: state.firebase.auth.authError
+        authError: state.auth.authError
     }
 }
 
